@@ -29,7 +29,6 @@ ky_ten = {
 #########################################################################################
 @login_required
 
-
 def thiet_lap_chung(request):    
     cancu = CanCu.objects.all()
     ld_phe_duyet = LdPheDuyet.objects.all()
@@ -330,6 +329,7 @@ def lap_qd_ttra(request):
     luat_ttra = CanCu.objects.filter(ten_cc__contains='luật thanh tra')[0]
     quy_trinh_ttra = CanCu.objects.filter(ten_cc__contains='quy trình ttra')[0]
     bsung_qtrinh_ttra = CanCu.objects.filter(ten_cc__contains='sửa, bs quy trình thanh tra')[0]
+    qd_ttr_bct = CanCu.objects.filter(ten_cc__contains='ke hoach ttra chuyen nganh')[0]
     # Lãnh đạo phê duyệt
     ld_cuc = LdPheDuyet.objects.filter(ld_cv__contains='Cục')[0]
     ld_phong = LdPheDuyet.objects.filter(ld_cv__contains='phòng')[0]
@@ -358,6 +358,9 @@ def lap_qd_ttra(request):
             '<qd_tkt_tct>': "Quyết định số " + qd_tkt_tct.so_qd,
             '<qd_tkt_tct_ngay_ban_hanh>': qd_tkt_tct.ngay_qd.strftime("ngày %d/%m/%Y"),
             '<nam_kh_tkt>': datetime.now().strftime("%Y"),
+            '<qd_ttr_bct>': "Quyết định số " + qd_tkt_tct.so_qd,
+            '<qd_ttr_bct_ngay_ban_hanh>': qd_tkt_tct.ngay_qd.strftime("ngày %d/%m/%Y"),
+            '<nam_kh_ttr>': datetime.now().strftime("%Y"),
             '<quy_trinh_ttra>': "Quyết định số " + quy_trinh_ttra.so_qd + quy_trinh_ttra.ngay_qd.strftime(" ngày %d tháng %m") + " năm " + quy_trinh_ttra.ngay_qd.strftime("%Y"),
             '<quy_trinh_ttra_rut_gon>': "Quyết định số " + quy_trinh_ttra.so_qd + quy_trinh_ttra.ngay_qd.strftime(" ngày %d/%m/%Y"),
             '<bsung_qtrinh_ttra>': "Quyết định số " + bsung_qtrinh_ttra.so_qd + bsung_qtrinh_ttra.ngay_qd.strftime(" ngày %d tháng %m") + " năm " + bsung_qtrinh_ttra.ngay_qd.strftime("%Y"),
