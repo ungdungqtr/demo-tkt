@@ -9,6 +9,11 @@ $(document).ready(function () {
         delimiter: '/',
         datePattern: ['d','m','Y']
     });
+    /* new Cleave('.phieu_xly_ngay', {
+        date: true,
+        delimiter: '/',
+        datePattern: ['d','m','Y']
+    }); */
     new Cleave('.ngay_thang_1', {
         date: true,
         delimiter: '/',
@@ -20,6 +25,7 @@ $(document).ready(function () {
         datePattern: ['Y']
     });
 
+    
     var dNow = new Date();
     var localdate= dNow.getDate() + '/' + (dNow.getMonth()+1) + '/' + dNow.getFullYear();
     $('.trinh_ky').val(localdate);
@@ -33,13 +39,13 @@ $(document).ready(function () {
         $('#tbody').append(
             `<tr id="R${++rowIdx}">
                 <td class="row-index">
-                    <p class="cb_gioi_tinh"></p></td>
+                    <p class="form-control cb_gioi_tinh"></p></td>
                 <td class="row-index">
-                    <input class="thanh_vien" name="thanh_vien" type="text" size="24" required></td>
+                    <input class="form-control thanh_vien" name="thanh_vien" type="text" required></td>
                 <td class="row-index">
                     <p class="ngach_cb"></p></td>
                 <td class="row-index">
-                    <p class="cv_doan" name="thanh_vien_cvu"></p></td>
+                    <p class="form-control cv_doan" name="thanh_vien_cvu"></p></td>
                 <td class="text-center">
                     <button class="btn btn-danger remove" 
                         type="button">Xóa</button></td>
